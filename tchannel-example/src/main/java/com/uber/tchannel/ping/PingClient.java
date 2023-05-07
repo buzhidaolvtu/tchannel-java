@@ -70,7 +70,7 @@ public class PingClient {
 
         String host = cmd.getOptionValue("h", "localhost");
         int port = Integer.parseInt(cmd.getOptionValue("p", "8888"));
-        int requests = Integer.parseInt(cmd.getOptionValue("n", "10000"));
+        int requests = Integer.parseInt(cmd.getOptionValue("n", "1"));
 
         System.out.println(String.format("Connecting from client to server on port: %d", port));
         new PingClient(host, port, requests).run();
@@ -87,7 +87,7 @@ public class PingClient {
             JsonRequest<Ping> request = new JsonRequest.Builder<Ping>("ping-server", "ping")
                 .setBody(new Ping("{'key': 'ping?'}"))
                 .setHeader("some", "header")
-                .setTimeout(100 + i)
+                .setTimeout(10000000 + i)
                 .build();
             TFuture<JsonResponse<Pong>> f = subChannel.send(
                     request,
