@@ -164,6 +164,7 @@ public final class TChannel {
         this.listeningPort = localAddress.getPort();
         this.listeningHost = localAddress.getAddress().getHostAddress();
         this.peerManager.setHostPort(String.format("%s:%d", this.listeningHost, this.listeningPort));
+//        this.peerManager.setHostPort(String.format("%s-%d", this.listeningHost, this.listeningPort));
         return f;
     }
 
