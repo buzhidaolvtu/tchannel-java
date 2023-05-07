@@ -35,10 +35,11 @@ public class ChatRequestHandler extends JSONRequestHandler<ChatRequest, ChatResp
         request.getArg2().retain();
         ChatRequest requestBody = request.getBody(ChatRequest.class);
         String content = requestBody.getContent();
+        System.out.println("I am port:" + self.getPort() + ". 收到了【" + content + "】");
         return new JsonResponse.Builder<ChatResponse>(request)
             .setTransportHeaders(request.getTransportHeaders())
             .setArg2(request.getArg2())
-            .setBody(new ChatResponse("I am port:" + self.getPort() + ". 收到了【" + content + "】"))
+            .setBody(new ChatResponse(self.getPort() + "的response"))
             .build();
     }
 

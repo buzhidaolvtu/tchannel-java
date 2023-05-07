@@ -87,4 +87,12 @@ public class ChatPeer {
     public int getPort() {
         return port;
     }
+
+    public TChannel getTchannel() {
+        return tchannel;
+    }
+
+    public SubChannel getSubChannel() {
+        return subChannel;
+    }
 }

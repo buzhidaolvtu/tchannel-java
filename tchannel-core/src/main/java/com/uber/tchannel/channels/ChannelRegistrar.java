@@ -46,6 +46,9 @@ public class ChannelRegistrar extends ChannelInboundHandlerAdapter {
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         super.channelActive(ctx);
         this.peerManager.add(ctx);
+        System.out.println("local:" + ctx.channel().localAddress() + ", remote:" + ctx.channel().remoteAddress());
+//        ctx.executor().execute(() -> System.out.println("local:" + ctx.channel().localAddress() + ", remote:" + ctx.channel().remoteAddress()));
+
     }
 
     @Override
